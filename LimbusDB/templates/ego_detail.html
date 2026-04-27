@@ -1,0 +1,11 @@
+<h1>{{ e.ego_name }}</h1>
+
+<p><b>Sinner:</b> {{ e.sinner_name }}</p>
+<p><b>Class:</b> {{ e.class }}</p>
+<p><b>Season:</b> {{ e.season_released }}</p>
+<p><b>Acquisition:</b> {{ e.acquisition }}</p>
+
+<p><b>Affinities:</b> {{ e.affinities if e.affinities else "None" }}</p>
+<p><b>Status Effects:</b> {{ e.statuses if e.statuses else "None" }}</p>
+
+<a href="/egos">Back</a>

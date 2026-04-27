@@ -1,0 +1,60 @@
+<h1>{{ sinner.sinner_name }}</h1>
+
+<p><b>Gender:</b> {{ sinner.gender }}</p>
+<p><b>Height:</b> {{ sinner.height }}</p>
+<p><b>Birthday:</b> {{ sinner.birthday }}</p>
+
+<p><b>District:</b> {{ sinner.native_district }}</p>
+<p><b>Color:</b> {{ sinner.color }}</p>
+<p><b>Literary Source:</b> {{ sinner.literary_source }}</p>
+
+<hr>
+
+<h2>Identities</h2>
+
+<table border="1">
+<tr>
+    <th>Name</th>
+    <th>Rarity</th>
+    <th>Season</th>
+</tr>
+
+{% for i in identities %}
+<tr>
+    <td>
+        <a href="/identity/{{ i.identity_id }}">
+            {{ i.identity_name }}
+        </a>
+    </td>
+    <td>{{ i.rarity }}</td>
+    <td>{{ i.season_released }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<hr>
+
+<h2>EGOs</h2>
+
+<table border="1">
+<tr>
+    <th>Name</th>
+    <th>Class</th>
+    <th>Season</th>
+</tr>
+
+{% for e in egos %}
+<tr>
+    <td>
+        <a href="/egos/{{ e.ego_id }}">
+            {{ e.ego_name }}
+        </a>
+    </td>
+    <td>{{ e.class }}</td>
+    <td>{{ e.season_released }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<br>
+<a href="/sinners">Back</a>

@@ -1,0 +1,21 @@
+<h1>IDs + EGOs per Season</h1>
+
+<canvas id="myChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const labels = [{% for row in data %}"{{ row.season_released }}",{% endfor %}];
+const values = [{% for row in data %}{{ row.total }},{% endfor %}];
+
+new Chart(document.getElementById('myChart'), {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Total IDs + EGOs',
+            data: values
+        }]
+    }
+});
+</script>

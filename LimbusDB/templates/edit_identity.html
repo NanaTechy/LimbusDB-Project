@@ -1,0 +1,58 @@
+<h1>Edit Identity</h1>
+
+<a href="/identities">Back</a><br><br>
+
+<form method="POST">
+
+    <!-- Name -->
+    Name:
+    <input type="text" name="identity_name" value="{{ identity.identity_name }}"><br><br>
+
+    <!-- Sinner -->
+    Sinner:
+    <select name="sinner_id">
+        {% for s in sinners %}
+        <option value="{{ s.sinner_id }}"
+            {% if s.sinner_id == identity.sinner_id %} selected {% endif %}>
+            {{ s.sinner_name }}
+        </option>
+        {% endfor %}
+    </select><br><br>
+
+    <!-- Rarity -->
+    Rarity:
+    <input type="text" name="rarity" value="{{ identity.rarity }}"><br><br>
+
+    <!-- Season -->
+    Season:
+    <input type="text" name="season_released" value="{{ identity.season_released }}"><br><br>
+
+    <!-- Acquisition -->
+    Acquisition:
+    <input type="text" name="acquisition" value="{{ identity.acquisition }}"><br><br>
+
+    <hr>
+
+    <!-- Affinities -->
+    <h3>Affinities</h3>
+    {% for a in affinities %}
+        <input type="checkbox" name="affinities" value="{{ a.affinity_name }}"
+            {% if a.affinity_name in current_aff %} checked {% endif %}>
+        {{ a.affinity_name }}<br>
+    {% endfor %}
+
+    <br>
+
+    <!-- Status Effects -->
+    <h3>Status Effects</h3>
+    {% for s in statuses %}
+        <input type="checkbox" name="statuses" value="{{ s.keyword_name }}"
+            {% if s.keyword_name in current_stat %} checked {% endif %}>
+        {{ s.keyword_name }}<br>
+    {% endfor %}
+
+    <br>
+
+    <input type="submit" value="Update Identity">
+
+</form>

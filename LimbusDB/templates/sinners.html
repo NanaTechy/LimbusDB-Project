@@ -1,0 +1,21 @@
+<h1>Sinners</h1>
+
+<a href="/<a href="/home">Home</a>">Home</a><br><br>
+
+<table border="1">
+<tr>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Height</th>
+    <th>Birthday</th>
+</tr>
+
+{% for s in sinners %}
+<tr>
+    <td><a href="/sinner/{{ s.sinner_id }}">{{ s.sinner_name }}</a></td>
+    <td>{{ s.gender }}</td>
+    <td>{{ s.height }}</td>
+    <td>{{ s.birthday }}</td>
+</tr>
+{% endfor %}
+</table>

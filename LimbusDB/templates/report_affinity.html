@@ -1,0 +1,42 @@
+<h1>Affinity Report</h1>
+
+<a href="/home">Home</a><br><br>
+
+<!-- Dropdown Form -->
+<form method="GET">
+    <label>Select Affinity:</label>
+    <select name="aff">
+        {% for a in affinities %}
+        <option value="{{ a.affinity_name }}"
+            {% if aff == a.affinity_name %} selected {% endif %}>
+            {{ a.affinity_name }}
+        </option>
+        {% endfor %}
+    </select>
+
+    <input type="submit" value="Search">
+</form>
+
+<br>
+
+{% if aff %}
+<h2>Results for: {{ aff }}</h2>
+
+<table border="1">
+<tr>
+    <th>Name</th>
+    <th>Type</th>
+</tr>
+
+{% for row in data %}
+<tr>
+    <td>{{ row.name }}</td>
+    <td>{{ row.type }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% elif aff is not none %}
+<p>No results found.</p>
+{% endif %}

@@ -1,0 +1,32 @@
+<h1>Add Identity</h1>
+
+<form method="POST">
+    Name: <input type="text" name="identity_name"><br>
+
+    Sinner:
+    <select name="sinner_id">
+        {% for s in sinners %}
+        <option value="{{ s.sinner_id }}">{{ s.sinner_name }}</option>
+        {% endfor %}
+    </select><br>
+	
+	<h3>Affinities</h3>
+{% for a in affinities %}
+    <input type="checkbox" name="affinities" value="{{ a.affinity_name }}">
+    {{ a.affinity_name }}<br>
+{% endfor %}
+
+<h3>Status Effects</h3>
+{% for s in statuses %}
+    <input type="checkbox" name="statuses" value="{{ s.keyword_name }}">
+    {{ s.keyword_name }}<br>
+{% endfor %}
+
+    Rarity: <input type="text" name="rarity"><br>
+    Season: <input type="text" name="season_released"><br>
+    Acquisition: <input type="text" name="acquisition"><br>
+
+    <input type="submit">
+</form>
+
+<a href="/home">Home</a>
