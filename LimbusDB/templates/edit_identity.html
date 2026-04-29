@@ -1,8 +1,34 @@
-<h1>Edit Identity</h1>
-
-<a href="/identities">Back</a><br><br>
-
 <form method="POST">
+
+    <html>
+    <head>
+        <title>Edit Identity</title>
+        <style>
+            body {
+                background-color: #29201F;
+                color: white;
+                text-align: center;
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+            .banner {
+                background-color: #b01c37;
+                padding: 20px 0;
+                font-size: 2em;
+                font-weight: bold;
+                letter-spacing: 2px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="banner">Limbus Database</div>
+        <h1>Edit Identity</h1>
+        {% include 'nav_buttons.html' %}
+        <form method="post">
+            <!-- form fields here -->
+        </form>
+    </body>
+    </html>
 
     <!-- Name -->
     Name:
@@ -31,6 +57,17 @@
     Acquisition:
     <input type="text" name="acquisition" value="{{ identity.acquisition }}"><br><br>
 
+    <hr>
+
+    <!-- Affinities -->
+    <h3>Affinities</h3>
+    {% for a in affinities %}
+        <input type="checkbox" name="affinities" value="{{ a.affinity_name }}"
+            {% if a.affinity_name in current_aff %} checked {% endif %}>
+        {{ a.affinity_name }}<br>
+    {% endfor %}
+
+    <br>    
     <!-- Status Effects -->
     <h3>Status Effects</h3>
     {% for s in statuses %}
