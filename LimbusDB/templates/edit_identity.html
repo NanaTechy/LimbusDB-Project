@@ -31,18 +31,6 @@
     Acquisition:
     <input type="text" name="acquisition" value="{{ identity.acquisition }}"><br><br>
 
-    <hr>
-
-    <!-- Affinities -->
-    <h3>Affinities</h3>
-    {% for a in affinities %}
-        <input type="checkbox" name="affinities" value="{{ a.affinity_name }}"
-            {% if a.affinity_name in current_aff %} checked {% endif %}>
-        {{ a.affinity_name }}<br>
-    {% endfor %}
-
-    <br>
-
     <!-- Status Effects -->
     <h3>Status Effects</h3>
     {% for s in statuses %}
